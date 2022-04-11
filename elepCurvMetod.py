@@ -116,23 +116,25 @@ def draw_graph(a, b, p):
             # print("%d-%d-%d-%d" % (x0,y0,x1,y1))
             x_y[x0][y0] = 1
             x_y[x1][y1] = 1
-    print("Хэш - диаграмма эллиптической кривой:")
-    for j in range(p):
-        if p - 1 - j >= 10:
-            print(p - 1 - j, end=" ")
-        else:
-            print(p - 1 - j, end="  ")
-        for i in range(p):
-            print(x_y[i][p - j - 1], end="  ")
-        print()
-    print("   ", end="")
-    for i in range(p):
-        if i >= 10:
-            print(i, end=" ")
-        else:
-            print(i, end="  ")
 
-    print()
+    # вывод графика
+    # print("Хэш - диаграмма эллиптической кривой:")
+    # for j in range(p):
+    #     if p - 1 - j >= 10:
+    #         print(p - 1 - j, end=" ")
+    #     else:
+    #         print(p - 1 - j, end="  ")
+    #     for i in range(p):
+    #         print(x_y[i][p - j - 1], end="  ")
+    #     print()
+    # print("   ", end="")
+    # for i in range(p):
+    #     if i >= 10:
+    #         print(i, end=" ")
+    #     else:
+    #         print(i, end="  ")
+    #
+    # print()
 
 
 def calculate_np(G_x, G_y, private_key, a, p):
@@ -162,9 +164,9 @@ def ecc_encrypt_and_decrypt():
             break
     # Вывести график рассеяния эллиптической кривой
     draw_graph(a, b, p)
-    print("Выберите точку в качестве генератора G на картинке выше")
-    G_x = int(input("Выбранная вами абсцисса G_x:"))
-    G_y = int(input("Ордината, которую вы выбрали G_y:"))
+    print("Выберите  координаты точки в качестве генератора G")
+    G_x = int(input("Выбранная вами абсцисса G(x):"))
+    G_y = int(input("Ордината, которую вы выбрали G(y):"))
     # Получить порядок эллиптической кривой
     n = get_order(G_x, G_y, a, b, p)
     # Получить закрытый ключ и ключ <порядок эллиптической кривой n
