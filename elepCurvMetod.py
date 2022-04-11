@@ -42,7 +42,7 @@ def calculate_p_q(x1, y1, x2, y2, a, p):
     gcd_value = gcd_x_y(member, denominator)
     member = int(member / gcd_value)
     denominator = int(denominator / gcd_value)
-    # Найти обратный знаменатель    
+    # Найти обратный знаменатель
     inverse_value = get_inverse_element(denominator, p)
     k = (member * inverse_value)
     if flag == 0:
@@ -149,14 +149,13 @@ def calculate_np(G_x, G_y, private_key, a, p):
         private_key -= 1
     return p_value
 
-
 def ecc_encrypt_and_decrypt():
     while True:
         a = int(input("Пожалуйста, введите параметр a эллиптической кривой:"))
         b = int(input("Пожалуйста, введите параметр b эллиптической кривой:"))
         p = int(input("Пожалуйста, введите параметр p эллиптической кривой(p - простое число):"))
 
-        if (4 * (a ** 3) + 27 * (b ** 2)) % p == 0: # формула 8.2(проверка правильности ключей)
+        if (4 * (a ** 3) + 27 * (b ** 2)) % p == 0:  # формула 8.2(проверка правильности ключей)
             print(
                 "Выбранная эллиптическая кривая не может быть использована для шифрования, пожалуйста, выберите заново \ n")
         else:
@@ -173,7 +172,7 @@ def ecc_encrypt_and_decrypt():
     # Рассчитать открытый ключ нг
     Q = calculate_np(G_x, G_y, private_key, a, p)
     print(
-        "================== Создать открытый ключ {a =% d, b =% d, p =% d, заказ% d, G (% d,% d) , Q (% d,% d)} ====== " % (
+        "====== Создать открытый ключ {a =% d, b =% d, p =% d, заказ% d, G (% d,% d) , Q (% d,% d)} ====== " % (
             a, b, p, n, G_x, G_y, Q[0], Q[1]))
 
     # Начало шифрования
